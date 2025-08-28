@@ -1,0 +1,148 @@
+:root{
+  --bg: #fbefdb;         /* beige del fondo */
+  --brand: #7b5f00;      /* dorado/ocre para acentos */
+  --accent: #e7671e;     /* naranja badge/acciones */
+  --text: #2b2b2b;
+}
+
+*{ box-sizing: border-box; }
+html, body, #root{ height: 100%; }
+body{
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .9rem 1.2rem;
+  border-bottom: 1px solid #eadac2;
+  background: rgba(251,239,219,.88);
+  backdrop-filter: blur(8px);
+}
+
+/* Marca */
+.brand{ display: flex; align-items: center; gap: .6rem; }
+.plus{
+  display: grid; place-items: center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--brand);
+  color: var(--brand);
+  font-weight: 500;
+}
+.brand-text{ line-height: 1.1; letter-spacing: 2px; color: #2b2b2b; }
+.brand-text .line1{ font-size: .76rem; opacity: .85; }
+.brand-text .line2{ display: block; font-weight: 700; font-size: .86rem; }
+
+/* Enlaces */
+.links{ display: flex; gap: 1rem; flex: 1; justify-content: center; }
+.links a{
+  text-decoration: none; color: #4b3a1a; font-weight: 600;
+  padding: .4rem .7rem; border-radius: .7rem;
+}
+.links a:hover{ background: #f4e6cf; }
+
+/* Carrito */
+.cart{
+  position: relative;
+  border: 1px solid #e8d7bb;
+  background: #fff7ea;
+  color: var(--brand);
+  padding: .35rem .45rem;
+  border-radius: .9rem;
+  display: grid; place-items: center;
+  cursor: pointer;
+}
+.badge{
+  position: absolute; top: -6px; right: -6px;
+  min-width: 18px; height: 18px; padding: 0 5px;
+  border-radius: 999px; background: var(--accent);
+  color: white; font-size: .7rem; font-weight: 700;
+  display: grid; place-items: center;
+}
+
+/* ---------- CONTENIDO ---------- */
+.container{ max-width: 1120px; margin: 0 auto; padding: 1.2rem 1rem 3rem; }
+
+/* Hero con prop greeting */
+.hero{
+  margin: 1.6rem auto 1.2rem;
+  background: #fff7ea;
+  border: 1px solid #ecd8bb;
+  border-radius: 1.2rem;
+  padding: 1.8rem;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(123,95,0,.06);
+}
+.hero h1{
+  margin: 0 0 .5rem;
+  font-family: "Quicksand", system-ui;
+  font-size: clamp(1.2rem, 1rem + 1vw, 1.8rem);
+  color: #553c00;
+}
+.hero p{ margin: 0; opacity: .85; }
+
+/* ---------- STRIP DE TARJETAS ---------- */
+.strip{
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 1.4rem;
+}
+@media (max-width: 980px){
+  .strip{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px){
+  .strip{ grid-template-columns: 1fr; }
+}
+
+.card{
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 18px;
+  padding: 1.1rem 1.1rem 1.1rem;
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: space-between;
+  min-height: 260px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+}
+.card.tall{ min-height: 380px; } /* Novedades más alta como en tu mockup */
+
+.bubble-plus{
+  position: absolute;
+  top: 10px; right: 12px;
+  width: 28px; height: 28px;
+  border-radius: 999px;
+  display: grid; place-items: center;
+  border: 2px solid rgba(0,0,0,.18);
+  color: rgba(0,0,0,.55);
+  background: rgba(255,255,255,.55);
+  font-weight: 700;
+}
+
+.card-media{
+  width: 85%; max-width: 280px; aspect-ratio: 1/1; overflow: hidden;
+  border-radius: 14px;
+  background: rgba(255,255,255,.6);
+  display: grid; place-items: center;
+}
+.card-media img{ width: 100%; height: 100%; object-fit: cover; }
+
+.card h3{
+  margin: .9rem 0 0;
+  text-align: center;
+  font-family: "Quicksand", system-ui;
+  font-weight: 700;
+  font-size: clamp(1.15rem, 1rem + .6vw, 1.6rem);
+  line-height: 1.05;
+  white-space: pre-line; /* para el salto de línea "Novedades\n del mes" */
+}
